@@ -54,5 +54,8 @@ module.exports = {
     */
     extend (config, ctx) {
     }
+  },
+  generate: {
+    dir: process.env.generateFolder || 'dist'
   }
 }
