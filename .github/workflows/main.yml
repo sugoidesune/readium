@@ -1,9 +1,6 @@
 name: CI
 
-on:
-  push:
-    branches:
-    - master
+on: [push]
 
 jobs:
   build:
@@ -11,5 +8,11 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      - uses: actions/checkout@
       - run: npm install
       - run: npm run gitpages
+      - name: Deploy site to gh-pages branch
+        uses: alex-page/blazing-fast-gh-pages-deploy@v1.1.0
+        with:
+         repo-token: ${{ secrets.GH_PAT }}
+         site-directory: docs
