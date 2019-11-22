@@ -58,4 +58,4 @@ module.exports = {
   generate: {
     dir: process.env.generateFolder || 'dist'
   }
-}
+};

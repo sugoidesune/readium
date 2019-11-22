@@ -127,6 +127,7 @@ section.header {
     margin-top: 25px;
 }
 section.sites {
+  margin-bottom: -35px;
     text-align: center;
   p {
     margin-top: -15px;
@@ -164,7 +165,6 @@ section.how {
     margin-top: 100px;
     text-align:center;
     margin-bottom: 10px;
-    text-decoration: underline;
     border-radius: 10px;
     padding: 5px 30px 9px 30px;
     font-weight: 600;
