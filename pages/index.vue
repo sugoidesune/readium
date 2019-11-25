@@ -16,7 +16,7 @@
   <a href="https://www.nytimes.com/">
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/NewYorkTimes.svg/185px-NewYorkTimes.svg.png" alt="">
   </a>
-  <a href="https://www.businessinsider.com/">
+  <a href="https://www.businessinsider.com/prime?IR=T">
   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Business_Insider_Logo.svg/320px-Business_Insider_Logo.svg.png" alt="">
   </a>
   <a href="https://www.medium.com/">
