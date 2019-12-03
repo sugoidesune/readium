@@ -17,9 +17,11 @@ module.exports = {
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700&display=swap' },
     ],
     script: [
-      {src: 'https://kit.fontawesome.com/5b47744dec.js', crossorigin:'anonymous'}
+      {src: 'https://kit.fontawesome.com/5b47744dec.js', crossorigin:'anonymous'},
+      {  innerHTML: "alert('love')"}
     ]
   },
+
   /*
   ** Customize the progress-bar color
   */
@@ -37,8 +39,11 @@ module.exports = {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: [
-  ],
+ buildModules: [
+  ['@nuxtjs/google-analytics', {
+    id: 'UA-41622771-4'
+  }]
+],
   /*
   ** Nuxt.js modules
   */
