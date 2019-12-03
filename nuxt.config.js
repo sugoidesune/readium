@@ -18,7 +18,6 @@ module.exports = {
     ],
     script: [
       {src: 'https://kit.fontawesome.com/5b47744dec.js', crossorigin:'anonymous'},
-      {  innerHTML: "alert('love')"}
     ]
   },
 
