@@ -1,9 +1,17 @@
 <template>
   <div class="container">
-    <section class="header">
+<section class="header">
   <h1>Readium</h1>
   <h3>[ <span>Read premium articles for free</span>  ]</h3>
 </section>
+
+<section class="quickstart d-none">
+  button  Watch a video
+</section>
+<section class="video">
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_5s5VUrNPMA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+
 
 <section class="how">
   
@@ -45,6 +53,32 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABSlBMV
 
 </section>
 
+<section class="not-a-newsletter d-none">
+  <!-- Begin Mailchimp Signup Form -->
+<div id="mc_embed_signup">
+<form action="https://github.us4.list-manage.com/subscribe/post?u=cdcf0fbdb74b3c21028610ca2&amp;id=9240a77d05" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <div id="mc_embed_signup_scroll">
+	<h2>Not a newsletter</h2>
+  <p>Just core updates about this project.</p>
+<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+<div class="mc-field-group">
+	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cdcf0fbdb74b3c21028610ca2_9240a77d05" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    </div>
+</form>
+</div>
+
+<!--End mc_embed_signup-->
+</section>
+
 <section class="social">
   <h5>4. Find me here:</h5>
   <div class="icons">
@@ -54,7 +88,7 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABSlBMV
     <a href="https://medium.com/@timarivobatis">
           <i class="fab fa-medium"></i>
     </a>
-        <a href="https://github.com/sugoidesune">
+    <a href="https://github.com/sugoidesune">
           <i class="fab fa-github"></i>
     </a>
   </div>
@@ -76,6 +110,9 @@ export default {
 <style lang="scss">
 $main: #ade1d5;//#ff005a;
 $accent: white;
+.d-none {
+  display: none !important;
+}
 body{
   margin: 0;
 background: $main;
@@ -88,13 +125,11 @@ font-family: 'Nunito', sans-serif;
     }
   }
   h1 {
-
     font-size:100px;
     text-align:center;
     margin-bottom: 0;
 }
   h3{
-    font-family: 'Nunito', sans-serif;
     font-weight: 100;
     margin-top: -20px;
     font-size:30px;
@@ -114,7 +149,16 @@ font-family: 'Nunito', sans-serif;
     text-align:center;
     margin-bottom: 10px;
   }
+@media only screen and (max-width: 768px) {
+  h1 {
+  font-size:75px;
+  margin-bottom: 5px;
+  }
+  h3 {
+    font-size: 22px;
+  }
 }
+
 
 section  {
   margin-top: 75px;
@@ -126,6 +170,16 @@ section  {
 section.header {
     margin-top: 25px;
 }
+
+section.video {
+  iframe {
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 560px;
+  }
+}
+
 section.sites {
   margin-bottom: -35px;
     text-align: center;
@@ -150,7 +204,13 @@ section.sites {
      .invert {
      filter: invert(0) contrast(300%) saturate(0) brightness(1);
     }
-
+  }
+  @media only screen and (max-width: 768px) {
+    .newssites {
+      img {
+        width: 70px;
+      }
+    }
   }
 }
 section.how {
@@ -240,5 +300,6 @@ section.social {
       margin:10px;
     }
   }
+}
 }
 </style>
