@@ -12,7 +12,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: 'favicon.ico' },
       { rel: 'shortcut icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700&display=swap' },
     ],
@@ -39,9 +39,7 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
  buildModules: [
-  // ['@nuxtjs/google-analytics', {
-  //   id: 'UA-41622771-4'
-  // }]
+
 ],
   /*
   ** Nuxt.js modules
@@ -49,11 +47,9 @@ module.exports = {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
+    ['@nuxtjs/google-gtag', { id: 'UA-41622771-4', debug: true}]
   ],
-  debug: {
-    enabled: true,
-    sendHitTask: true
-  },
+
   /*
   ** Build configuration
   */
