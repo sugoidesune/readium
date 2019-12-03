@@ -39,16 +39,16 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
  buildModules: [
-  ['@nuxtjs/google-analytics', {
-    id: 'UA-41622771-4'
-  }]
+  // ['@nuxtjs/google-analytics', {
+  //   id: 'UA-41622771-4'
+  // }]
 ],
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://bootstrap-vue.js.org
-    //'bootstrap-vue/nuxt',
+    'bootstrap-vue/nuxt',
   ],
   debug: {
     enabled: true,
