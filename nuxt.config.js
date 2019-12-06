@@ -47,7 +47,7 @@ module.exports = {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
-    ['@nuxtjs/google-gtag', { id: 'UA-41622771-4', debug: true}]
+    ['@nuxtjs/google-tag-manager', { id: 'UA-41622771-4', pageTracking: true, dev: true }],
   ],
 
   /*
