@@ -47,7 +47,7 @@ module.exports = {
   modules: [
     // Doc: https://bootstrap-vue.js.org
     'bootstrap-vue/nuxt',
-    ['@nuxtjs/google-tag-manager', { id: 'UA-41622771-4', pageTracking: true, dev: false }],
+    ['@nuxtjs/google-gtag', { id: 'UA-41622771-4', debug: true, config: {send_page_view: true} }],
   ],
 
   /*
@@ -58,8 +58,8 @@ module.exports = {
     ** You can extend webpack config here
     */
     //publicPath: 'https://sugoidesune.github.io/readium/', might be necessary to change path of index.thml files
-    extend (config, ctx) {
-    }
+    // extend (config, ctx) {
+    // }
   },
   router :{
     base: '/readium/'
