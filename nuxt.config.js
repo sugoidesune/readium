@@ -63,7 +63,7 @@ module.exports = {
   },
   router :{
     base: '/readium/'
-  }
+  },
   generate: {
     dir: process.env.generateFolder || 'dist'
   }
