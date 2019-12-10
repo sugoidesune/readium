@@ -94,7 +94,6 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABSlBMV
 </template>
 
 <script>
-import jsonpAdapter from 'axios-jsonp'
 
 export default {
   data(){return{
