@@ -10,6 +10,13 @@
   * @license MIT
   */
 
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
 /*! 
   * portal-vue © Thorsten Lünborg, 2019 
   * 
