@@ -53,34 +53,30 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABSlBMV
 
 </section>
 
-<section class="not-a-newsletter d-none">
-  <!-- Begin Mailchimp Signup Form -->
+<section class="not-a-newsletter">
+	<h5>4. Only way to get updates...</h5>
+  <p class="subtitle">...not a newsletter, just core project updates. </p>
 <div id="mc_embed_signup">
-<form action="https://github.us4.list-manage.com/subscribe/post?u=cdcf0fbdb74b3c21028610ca2&amp;id=9240a77d05" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<form id="mc-form" @submit.prevent="checkForm" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
     <div id="mc_embed_signup_scroll">
-	<h2>Not a newsletter</h2>
-  <p>Just core updates about this project.</p>
-<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-<div class="mc-field-group">
-	<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
-</label>
-	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+<div class="form-fields" v-bind:class="{'d-none': showThanks}">
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email" v-model="email" v-on:blur="on_blur_email" v-on:input="on_input_email">
+  <input type="submit" value="Get Updates" name="subscribe" id="mc-embedded-subscribe" class="button" v-on:blur="on_blur_submit">
 </div>
-	<div id="mce-responses" class="clear">
+  <p v-bind:class="{'d-none': !showEmailError}" class="error-message">I can't readium this email... try another.</p>
+  <p v-bind:class="{'d-none': !showThanks}" class="error-message thanks">Thanks!</p>
 		<div class="response" id="mce-error-response" style="display:none"></div>
 		<div class="response" id="mce-success-response" style="display:none"></div>
-	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cdcf0fbdb74b3c21028610ca2_9240a77d05" tabindex="-1" value=""></div>
-    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_cdcf0fbdb74b3c21028610ca2_9240a77d05" tabindex="-1" value="LOVE" v-model="bottrap"></div>
+
     </div>
 </form>
 </div>
-
-<!--End mc_embed_signup-->
 </section>
 
+
 <section class="social">
-  <h5>4. Find me here:</h5>
+  <h5>5. Find me here:</h5>
   <div class="icons">
     <a href="https://twitter.com/sudotimar">
           <i class="fab fa-twitter"></i>
@@ -98,11 +94,55 @@ src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABSlBMV
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import jsonpAdapter from 'axios-jsonp'
 
 export default {
-  components: {
-    Logo
+  data(){return{
+    email:'',
+    bottrap: '',
+    showEmailError: false,
+    showThanks: false,
+  }
+  },
+  methods :{
+    on_blur_submit(){
+      //this.showThanks = false;
+    },
+    on_blur_email(){
+      if(this.validEmail(this.email)){
+      } else {
+        this.showEmailError = true
+      }
+    },
+    on_input_email(){
+      this.showEmailError = false
+    },
+    checkForm(event){
+      event.preventDefault();
+      if(this.validEmail(this.email)){
+        var data = new FormData()
+        data.append('EMAIL', this.email)
+        data.append('b_cdcf0fbdb74b3c21028610ca2_9240a77d05', '')
+        var params = new URLSearchParams(data).toString()
+        console.log('jsonpeeing all overthis')
+          var url = ("https://github.us4.list-manage.com/subscribe/post?u=cdcf0fbdb74b3c21028610ca2&amp;id=9240a77d05&c=callbackMC&"+params).replace('/post?u=', '/post-json?u=');
+
+        fetch(url, {"method": "POST",
+        "mode": "no-cors",
+        "data": JSON.stringify(data)
+        })
+        .then(res=>res).then(text=>text.text().then(txt=>{
+          this.showThanks = true
+          this.email = ''
+          }))
+      } else {
+        this.showEmailError = true
+      }
+    },
+    validEmail: function (email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
   }
 }
 </script>
@@ -291,6 +331,7 @@ section.social {
   width: 300px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 75px;
   .icons {
     margin-top: -10px;
       display: flex;
@@ -299,7 +340,58 @@ section.social {
       font-size: 25px;
       margin:10px;
     }
+      a:hover{
+        color: $accent;
+      }
   }
+}
+
+section.not-a-newsletter {
+  width: 325px;
+  margin-left: auto;
+  margin-right: auto;
+  p.subtitle{
+    text-align: center;
+    margin-top: -25px;
+  }
+    label {
+      display: block;
+      margin: 0;
+    }
+  .form-fields {
+    display: flex;
+    padding-bottom: 24px;
+    input.email {
+      flex-grow: 1;
+      border: 0;
+      border-radius: 5px 0px 0px 5px;
+      padding: 5px;
+      padding-left:  10px;
+      &::placeholder {
+      color: $main;
+      }
+    }
+    input.button {
+      flex-grow: 1;
+      border: 0;
+      border-radius: 0px 5px 5px 0;
+      background: white;
+      border-left: 1px solid $main;
+      color: $main;
+      padding: 5px;
+      &:hover {
+              box-shadow: 0px 0px 5px 0 #fff;
+      }
+    }
+  }
+  .thanks {
+    text-align: center;
+    padding: 27px;
+    font-size: 20px;
+  }
+    .error-message {
+      margin-top: -24px;
+    }
 }
 }
 </style>

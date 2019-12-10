@@ -1,4 +1,5 @@
 
+
 module.exports = {
   mode: 'universal',
   /*
@@ -39,7 +40,7 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
  buildModules: [
-
+  '@nuxtjs/axios',
 ],
   /*
   ** Nuxt.js modules
@@ -57,12 +58,11 @@ module.exports = {
     /*
     ** You can extend webpack config here
     */
-    //publicPath: 'https://sugoidesune.github.io/readium/', might be necessary to change path of index.thml files
     // extend (config, ctx) {
     // }
   },
   router :{
-    base: '/readium/'
+    base: process.env.NODE_ENV === "development" ? '/' : '/readium/'
   },
   generate: {
     dir: process.env.generateFolder || 'dist'
