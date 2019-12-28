@@ -2,7 +2,8 @@
 
 > Bookmarklet for reading premium articles for free
 
-Find it here:
+Instructions and Bookmarklet can be found here:
 https://sugoidesune.github.io/readium/
 
-This repositroy is just the Vue project to create the website.
+
+*This repositroy is simply the Vue project to create the website.
