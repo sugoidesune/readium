@@ -19,6 +19,7 @@ module.exports = {
     ],
     script: [
       {src: 'https://kit.fontawesome.com/5b47744dec.js', crossorigin:'anonymous'},
+      {src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',"data-ad-client": "ca-pub-2646446150472469",async: true }
     ]
   },
 
